@@ -15,17 +15,17 @@ public class ItemVO implements Serializable {
 	 */
 	private static final long serialVersionUID = -7762394417363225381L;
 
-	private Integer idItem;
+	private Integer id_item_venda;
 	private String produto;
-	private Long precoUnitario;
+	private Long preco_unitario;
 	private Long desconto;
 
-	public Integer getIdItem() {
-		return idItem;
+	public Integer getId_item_venda() {
+		return id_item_venda;
 	}
 
-	public void setIdItem(Integer idItem) {
-		this.idItem = idItem;
+	public void setId_item_venda(Integer id_item_venda) {
+		this.id_item_venda = id_item_venda;
 	}
 
 	public String getProduto() {
@@ -36,12 +36,12 @@ public class ItemVO implements Serializable {
 		this.produto = produto;
 	}
 
-	public Long getPrecoUnitario() {
-		return precoUnitario;
+	public Long getPreco_unitario() {
+		return preco_unitario;
 	}
 
-	public void setPrecoUnitario(Long precoUnitario) {
-		this.precoUnitario = precoUnitario;
+	public void setPreco_unitario(Long preco_unitario) {
+		this.preco_unitario = preco_unitario;
 	}
 
 	public Long getDesconto() {

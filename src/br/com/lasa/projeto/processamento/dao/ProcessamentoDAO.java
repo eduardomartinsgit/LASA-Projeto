@@ -2,7 +2,6 @@ package br.com.lasa.projeto.processamento.dao;
 
 import java.util.List;
 
-import br.com.lasa.projeto.venda.vo.ProcessamentoVO;
 import br.com.lasa.projeto.venda.vo.VendaVO;
 
 /**
@@ -17,13 +16,13 @@ public interface ProcessamentoDAO {
 	 * @param vendaVO
 	 * @return
 	 */
-	public boolean inserirVendaProcessada(VendaVO vendaVO);
+	public boolean inserirVendaProcessada(VendaVO vendaVO);	
 	
 	/**
 	 * Método responsável por obter os processamentos pendentes.
 	 * @return
 	 */
-	public List<ProcessamentoVO> obterProcessamentosPendentes();
+	public List<VendaVO> obterProcessamentosPendentes();
 	
 	/**
 	 * Método responsável por atualizar o status de um determinado processamento.

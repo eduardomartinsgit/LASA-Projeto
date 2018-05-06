@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import br.com.lasa.projeto.venda.vo.ItemVO;
 import br.com.lasa.projeto.venda.vo.VendaVO;
 @Repository	
 public class VendaDAOImpl implements VendaDAO {
@@ -27,8 +28,15 @@ public class VendaDAOImpl implements VendaDAO {
 	public boolean atualizarStatusVenda(Integer id_venda) {
 		StringBuffer query = new StringBuffer();
 		query.append("UPDATE tb_venda SET status = 'OK' WHERE id_venda = " + id_venda);
-		int update = jdbcTemplate.update(query.toString());
+		jdbcTemplate.update(query.toString());
 		return true;
+	}
+
+	public List<ItemVO> obterItensVenda(Integer id_venda) {
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT I.id_item_venda, I.produto, I.preco_unitario, I.desconto FROM tb_item_venda I WHERE I.id_venda = " + id_venda + "  LIMIT 10");
+		List<ItemVO> itens  = jdbcTemplate.query(query.toString(),new BeanPropertyRowMapper<>(ItemVO.class));
+		return itens;
 	}
 
 }

@@ -57,4 +57,11 @@ public class VendaDAOImpl implements VendaDAO {
 		return true;
 	}
 
+	public List<VendaVO> obterVendas() {
+		StringBuffer query = new StringBuffer();
+		query.append("SELECT V.id_venda, V.data, V.loja, V.pdv, V.status FROM tb_venda V");
+		List<VendaVO> vendas  = jdbcTemplate.query(query.toString(),new BeanPropertyRowMapper<>(VendaVO.class));
+		return vendas;
+	}
+
 }

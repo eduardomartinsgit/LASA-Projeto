@@ -44,4 +44,11 @@ public interface VendaDAO {
 	 * @return
 	 */
 	public boolean inserirItensVenda(VendaVO vendaVO);
+	
+
+	/**
+	 * Método responsável por obter todas as vendas e seus respectivos status.
+	 * @return
+	 */
+	public List<VendaVO> obterVendas();
 }

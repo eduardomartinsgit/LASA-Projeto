@@ -12,6 +12,11 @@ import br.com.lasa.projeto.utils.LASAUtils;
 import br.com.lasa.projeto.venda.facade.VendaServiceFacade;
 import br.com.lasa.projeto.venda.vo.VendaVO;
 
+/**
+ * WebService responsável por obter vendas a serem processadas.
+ * @author Eduardo Martins
+ *
+ */
 @Path("/vendas")
 public class ProcessamentoWebService {
 	

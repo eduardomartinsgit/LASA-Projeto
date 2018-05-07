@@ -16,7 +16,7 @@ public interface ProcessamentoDAO {
 	 * @param vendaVO
 	 * @return
 	 */
-	public boolean inserirVendaProcessada(VendaVO vendaVO);	
+	public boolean inserirProcessamentoStatus(VendaVO vendaVO, String statusProcessamento);	
 	
 	/**
 	 * Método responsável por obter os processamentos pendentes.
@@ -29,4 +29,5 @@ public interface ProcessamentoDAO {
 	 * @return
 	 */
 	public boolean atualizarStatusProcessamento(Integer id_processamento);
+	
 }

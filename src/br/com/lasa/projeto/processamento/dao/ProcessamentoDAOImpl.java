@@ -15,10 +15,10 @@ public class ProcessamentoDAOImpl implements ProcessamentoDAO{
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public boolean inserirVendaProcessada(VendaVO vendaVO) {
+	public boolean inserirProcessamentoStatus(VendaVO vendaVO, String statusProcessamento) {
 		StringBuilder query = new StringBuilder();
 		query.append("INSERT INTO tb_processamento (data, loja, pdv, status) VALUES (?, ?, ?, ?)");
-		jdbcTemplate.update(query.toString(), new Object[] { vendaVO.getData(), vendaVO.getLoja(), vendaVO.getPdv(), vendaVO.getStatus() });
+		jdbcTemplate.update(query.toString(), new Object[] { vendaVO.getData(), vendaVO.getLoja(), vendaVO.getPdv(), statusProcessamento });
 		return true;
 	}
 

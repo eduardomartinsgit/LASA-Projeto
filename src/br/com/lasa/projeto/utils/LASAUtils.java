@@ -7,6 +7,10 @@ package br.com.lasa.projeto.utils;
  */
 public class LASAUtils {
 	
+	public static final String STATUS_NAO_PROCESSADO = "NÃO PROCESSADO";
+	public static final String STATUS_OK = "OK";
+	public static final String STATUS_PENDENTE = "PENDENTE";
+	
 	/**
 	 * Método responsável por remover ponto e/ou virgulas de uma determinada String.
 	 * @param valor
@@ -22,9 +26,9 @@ public class LASAUtils {
 	 * @param desconto
 	 * @return
 	 */
-	public static Long calcularValorTotal(Long valor, Long desconto) {
+	public static Double calcularValorTotal(Double valor, Double desconto) {
 		
-		Long valorDescontado = (valor * desconto)/100;
+		Double valorDescontado = (valor * desconto)/100;
 		return valor - valorDescontado;
 		
 	}

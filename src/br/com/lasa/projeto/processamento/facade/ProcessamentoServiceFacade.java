@@ -1,8 +1,6 @@
 package br.com.lasa.projeto.processamento.facade;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -32,6 +30,10 @@ public class ProcessamentoServiceFacade {
 		return processamentoDAO.obterProcessamentosPendentes();
 	}
 	
+	/**
+	 * Método responsável por criar/alterar o diretorio PROCESSADOS e inserir o arquivo TXT com as vendas processadas.
+	 * @param listaProcessados
+	 */
 	public void criarArquivoProcessados(List<VendaVO> listaProcessados){
 		Date dataAtual = new Date();
 		SimpleDateFormat formatador = new SimpleDateFormat("dd_mm_yyyy_HH_mm_ss");
@@ -58,7 +60,7 @@ public class ProcessamentoServiceFacade {
 						arquivo.print(StringUtils.leftPad(LASAUtils.removerPontoVirgula(itemVO.getPreco_unitario().toString()), 4, "0"));
 						arquivo.print(StringUtils.leftPad(LASAUtils.removerPontoVirgula(itemVO.getDesconto().toString()), 4, "0"));
 						
-						arquivo.println(StringUtils.leftPad(LASAUtils.calcularValorTotal(itemVO.getPreco_unitario(), itemVO.getDesconto()).toString(), 4, "0"));
+						arquivo.println(StringUtils.leftPad(LASAUtils.removerPontoVirgula(LASAUtils.calcularValorTotal(itemVO.getPreco_unitario(), itemVO.getDesconto()).toString()).toString(), 4, "0"));
 						
 						qntdVendasProcessadas++;
 					}
@@ -70,6 +72,15 @@ public class ProcessamentoServiceFacade {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Método responsável por inserir uma venda processada com o status de PENDENTE, aguardando ser gerada no arquivo TXT.
+	 * @param vendaVO
+	 * @return
+	 */
+	public boolean inserirProcessamentoStatus(VendaVO vendaVO, String statusProcessamento) {
+		return processamentoDAO.inserirProcessamentoStatus(vendaVO, statusProcessamento);
 	}
 	
 }

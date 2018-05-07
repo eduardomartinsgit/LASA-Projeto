@@ -17,8 +17,8 @@ public class ItemVO implements Serializable {
 
 	private Integer id_item_venda;
 	private String produto;
-	private Long preco_unitario;
-	private Long desconto;
+	private Double preco_unitario;
+	private Double desconto;
 
 	public Integer getId_item_venda() {
 		return id_item_venda;
@@ -36,19 +36,19 @@ public class ItemVO implements Serializable {
 		this.produto = produto;
 	}
 
-	public Long getPreco_unitario() {
+	public Double getPreco_unitario() {
 		return preco_unitario;
 	}
 
-	public void setPreco_unitario(Long preco_unitario) {
+	public void setPreco_unitario(Double preco_unitario) {
 		this.preco_unitario = preco_unitario;
 	}
 
-	public Long getDesconto() {
+	public Double getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(Long desconto) {
+	public void setDesconto(Double desconto) {
 		this.desconto = desconto;
 	}
 

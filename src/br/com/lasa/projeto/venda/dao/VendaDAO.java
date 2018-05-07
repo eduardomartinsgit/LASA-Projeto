@@ -31,4 +31,17 @@ public interface VendaDAO {
 	 * @return
 	 */
 	public List<ItemVO> obterItensVenda(Integer id_venda);
+	
+	/**
+	 * Método responsável por inserir uma venda pendente de processamento.
+	 * @param vendaVO
+	 */
+	public boolean inserirVendaStatus(VendaVO vendaVO, String statusVenda);
+	
+	/**
+	 * Método responsável por inserir os itens associados a uma venda.
+	 * @param itemVO
+	 * @return
+	 */
+	public boolean inserirItensVenda(VendaVO vendaVO);
 }

@@ -63,8 +63,8 @@
 				      <td>{{venda.pdv }}</td>
 				      <td>{{item.id_item_venda }}</td>
 				      <td>{{item.produto }}</td>
-				      <td>{{item.preco_unitario }}</td>
-				      <td>{{item.desconto }}</td>
+				      <td>R$ {{item.preco_unitario }}</td>
+				      <td>{{item.desconto }}%</td>
 				      <td>{{venda.status }}</td>
 				    </tr>
 			  </tbody>

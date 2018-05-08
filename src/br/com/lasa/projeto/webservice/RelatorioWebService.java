@@ -27,7 +27,6 @@ public class RelatorioWebService {
 	@Path("/obterVendas")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public List<VendaVO> obterVendas() {
-	
 		List<VendaVO> listaVendas = vendaServiceFacade.obterVendas();
 		return listaVendas;
 	}

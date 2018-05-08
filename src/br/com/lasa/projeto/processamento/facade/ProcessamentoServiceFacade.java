@@ -36,7 +36,7 @@ public class ProcessamentoServiceFacade {
 	 */
 	public void criarArquivoProcessados(List<VendaVO> listaProcessados){
 		Date dataAtual = new Date();
-		SimpleDateFormat formatador = new SimpleDateFormat("dd_mm_yyyy_HH_mm_ss");
+		SimpleDateFormat formatador = new SimpleDateFormat("dd_MMM_yyyy_HH_mm_ss");
 		SimpleDateFormat formatadorArquivo = new SimpleDateFormat("ddmmyyyy");
 		
 
@@ -44,7 +44,8 @@ public class ProcessamentoServiceFacade {
 			//Verifica se o diretorio onde será gravado existe, caso não exista será criado o diretorio a partir do PATH passado como parametro.
 			new File("C:\\PROCESSADOS\\").mkdir();
 			PrintWriter arquivo;
-			arquivo = new PrintWriter(new File("C:\\PROCESSADOS\\VENDAS_PROCESSADAS_" + formatador.format(dataAtual) + ".txt"));
+			String nomeArquivo = "VENDAS_PROCESSADAS_" + formatador.format(dataAtual);
+			arquivo = new PrintWriter(new File("C:\\PROCESSADOS\\" + nomeArquivo + ".txt"));
 			Integer qntdVendasProcessadas = 0;
 			for (VendaVO vendaVO : listaProcessados) {
 				List<ItemVO> itens = vendaDAO.obterItensVenda(vendaVO.getId_venda());
@@ -65,7 +66,7 @@ public class ProcessamentoServiceFacade {
 						qntdVendasProcessadas++;
 					}
 				}
-				processamentoDAO.atualizarStatusProcessamento(vendaVO.getId_processamento());
+				processamentoDAO.atualizarStatusProcessamento(vendaVO.getId_processamento(), nomeArquivo, LASAUtils.STATUS_OK);
 			}
 			
 			arquivo.close();

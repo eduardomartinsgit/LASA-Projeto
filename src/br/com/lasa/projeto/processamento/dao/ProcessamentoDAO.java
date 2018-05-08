@@ -28,6 +28,6 @@ public interface ProcessamentoDAO {
 	 * Método responsável por atualizar o status de um determinado processamento.
 	 * @return
 	 */
-	public boolean atualizarStatusProcessamento(Integer id_processamento);
+	public boolean atualizarStatusProcessamento(Integer id_processamento, String nomeArquivo, String statusProcessamento);
 	
 }

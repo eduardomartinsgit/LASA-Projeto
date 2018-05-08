@@ -24,11 +24,14 @@ public class VendaDAOImpl implements VendaDAO {
 
 	public VendaVO obterVendaPendenteProcessamento() {
 		StringBuffer query = new StringBuffer();
-		query.append("SELECT V.id_venda, V.data, V.loja, V.pdv, V.status FROM tb_venda V WHERE status = 'OK' ORDER BY V.data DESC LIMIT 1");
+		query.append("SELECT V.id_venda, V.data, V.loja, V.pdv, V.status FROM tb_venda V WHERE status = 'OK' ORDER BY V.data DESC");
 		try {
-			VendaVO vendaVO  = jdbcTemplate.queryForObject(query.toString(), VendaVO.class);
-			LOGGER.debug("A venda " + vendaVO.getId_venda() + " foi obtida para processamento.");
-			return vendaVO;
+			List<VendaVO> listaVendas  = jdbcTemplate.query(query.toString(), new BeanPropertyRowMapper<>(VendaVO.class));
+			for (VendaVO vendaVO : listaVendas) {
+				LOGGER.debug("A venda " + vendaVO.getId_venda() + " foi obtida para processamento.");
+				return vendaVO;
+			}
+			return null;
 		} catch (InvalidResultSetAccessException e) {
 		    LOGGER.error(e.getStackTrace() + e.getSql());
 		    return null;

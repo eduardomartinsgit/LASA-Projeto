@@ -51,11 +51,11 @@ public class ProcessamentoDAOImpl implements ProcessamentoDAO{
 		}
 	}	
 
-	public boolean atualizarStatusProcessamento(Integer id_processamento) {
+	public boolean atualizarStatusProcessamento(Integer id_processamento, String nomeArquivo, String statusProcessamento) {
 		StringBuffer query = new StringBuffer();
-		query.append("UPDATE tb_processamento SET status = 'OK' WHERE id_processamento = " + id_processamento);
+		query.append("UPDATE tb_processamento SET nome_arquivo = ?, status = ? WHERE id_processamento = ?;");
 		try{
-			jdbcTemplate.update(query.toString());
+			jdbcTemplate.update(query.toString(), new Object[] { nomeArquivo, statusProcessamento, id_processamento });
 			LOGGER.debug("STATUS do processamento " + id_processamento + " atualizado com sucesso para 'OK'");
 			return true;
 		}catch (DataAccessException e){

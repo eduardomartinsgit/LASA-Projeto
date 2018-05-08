@@ -33,7 +33,11 @@ public class ProcessamentoJob {
     public synchronized void criarArquivoProcessamento() {
     	LOGGER.debug("INICIANDO CRIACAO DO ARQUIVO TXT");
     	List<VendaVO> processamentosPendentes = processamentoServiceFacade.obterProcessamentosPendentes();
-    	processamentoServiceFacade.criarArquivoProcessados(processamentosPendentes);
-    	LOGGER.debug("FINALIZANDO CRIACAO DO ARQUIVO TXT");
+    	if(!processamentosPendentes.isEmpty()) {
+    		processamentoServiceFacade.criarArquivoProcessados(processamentosPendentes);
+    		LOGGER.debug("FINALIZANDO CRIACAO DO ARQUIVO TXT");
+    	} else {
+    		LOGGER.debug("SISTEMA NÃO POSSUI VENDAS PENDENTES");
+    	}
     }
 }

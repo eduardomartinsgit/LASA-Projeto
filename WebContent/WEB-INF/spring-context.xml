@@ -41,7 +41,7 @@
 
     <bean id="triggerExecutarProcessamentoVenda" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:jobDetail-ref="executarProcessamentoVendaFactoryBean" p:cronExpression="0/60 * * * * ?" p:startDelay="30000"/>
     <bean id="triggerExecutarDuoProcessamentoVenda" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:jobDetail-ref="executarProcessamentoVendaDuoFactoryBean" p:cronExpression="0/60 * * * * ?" p:startDelay="300000"/>
-    <bean id="triggerCriarArquivoProcessamento" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:jobDetail-ref="criarArquivoProcessamentoFactoryBean" p:cronExpression="0/60 * * * * ?"  p:startDelay="30000"/>
+    <bean id="triggerCriarArquivoProcessamento" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" p:jobDetail-ref="criarArquivoProcessamentoFactoryBean" p:cronExpression="0/30 * * * * ?"/>
 
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" p:triggers-ref="triggerExecutarProcessamentoVenda" />
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" p:triggers-ref="triggerExecutarDuoProcessamentoVenda" />

@@ -5,8 +5,8 @@
 <br>
 <br>
 Projeto para avaliação no processo seletivo da empresa TO Brasil. <br>
-A ideia do projeto é processar determinadas vendas a partir de uma base de dados ou WebService, transformar alguns dados específicos e extraí-los em forma de um arquivo TXT posicional. <br>
-Similar ao processo de ETL.
+A ideia do projeto é processar determinadas vendas a partir de uma base de dados ou WebService, 
+<br>transformar alguns dados específicos e extraí-los em forma de um arquivo TXT posicional. Similar ao processo de ETL.
 <br>
 <br>
 <br>
@@ -29,6 +29,10 @@ Similar ao processo de ETL.
 |Ambiente de Desenvolvimento(IDE)           |`Eclipse`|
 
 
+#### Threads
+
+    Os Jobs estão configurados para inicializarem as operações de processamento
+    30 segundos após o start do servidor de aplicação e executando a cada 1 min
 
 
 # Diagrama de Estados - Simplificado
@@ -183,13 +187,18 @@ SELECT * FROM tb_venda;
 SELECT * FROM tb_item_venda;
 SELECT * FROM tb_processamento;
 ```
+
+#### Página de Relatório - URL
+    
+    http://localhost:8080/LASA-Projeto/ 
+
 #### WebServices
 
     @POST
-    http://localhost:[PORTA]/LASA-Projeto/rest/processamento/inserirVenda  - Endpoint referente a inserção de uma nova venda.
+    http://localhost:8080/LASA-Projeto/rest/processamento/inserirVenda  - Endpoint referente a inserção de uma nova venda.
     
     @GET
-    http://localhost:[PORTA]/LASA-Projeto/rest/relatorio/obterVendas - Serviço utilizado para recuperar as vendas exibidas no relatório.
+    http://localhost:8080/LASA-Projeto/rest/relatorio/obterVendas - Serviço utilizado para recuperar as vendas exibidas no relatório.
 
 
 ##### Exemplo do JSON de entrada para o serviço [POST] inserirVenda

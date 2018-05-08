@@ -227,3 +227,62 @@ SELECT * FROM tb_processamento;
     ]
 }
 ```
+
+#### Configuração da Aplicação no Eclipse
+
+    Após realizar o download do projeto compactado em um arquivo.zip, 
+    extraia o arquivo no local de sua preferência.
+     
+    Na aba Project Explorer do Eclipse, clique com o botão direto e selecione
+    as opções conforme as imagens abaixo.
+   
+![Etapa 1](https://image.ibb.co/cHueYn/Etapa_1.png)
+
+![Etapa 2](https://image.ibb.co/mt1F67/Etapa_2.png)
+
+![Etapa 3](https://image.ibb.co/btnNm7/Etapa_3.png)
+
+    Pressione Finish e o projeto será incluído na aba Project Explorer.
+     
+    Em seguida, será necessário atualizar as dependencias que 
+    serão utilizadas na aplicação através do Maven.
+    Siga os passos abaixo conforme as imagens.
+
+![Etapa 4](https://image.ibb.co/jbWRDn/Etapa_4.png)
+
+    Após a realização do download de todas as dependencias utilizadas,
+    o projeto está pronto para ser inicializado através do Apache Tomcat.
+     
+    Para isso, precisamos criar um servidor conforme as imagens abaixo.
+    
+*Obs: Nesta etapa, é necessario realizar o download das bibliotecas do Apache Tomcat 7.0 e extrair o arquivo .zip no local de sua preferência. [Apache Tomcat 7.0 Download](https://tomcat.apache.org/download-70.cgi)
+
+![Etapa 5](https://image.ibb.co/bwsYtn/Etapa_5.png)
+
+![Etapa 6](https://image.ibb.co/h04PzS/Etapa_6.png)
+
+![Etapa 8](https://image.ibb.co/eSJjzS/Etapa_7.png)
+
+    Pressione Finish e será criado um servidor do Apache Tomcat 7.0 e o mesmo
+    aparecerá na aba Servers.
+     
+    Agora, é necessário incluir o projeto no servidor do Tomcat mas antes 
+    é preciso configurar a Server Library do projeto referenciando as
+    bibliotecas do tomcat.
+     
+    Clique com o botão direito no projeto -> Build Path -> Configure BuildPath
+    Clique em ADD e em seguida clique em Server Runtime, selecione o
+    Apache Tomcat 7.0 e de OK.
+     
+    Agora sim podemos incluir o projeto no servidor Tomcat, 
+    Para isso, clique com o botão direito no servidor Tomcat, selecione
+    a opção Add and Remove. Clique na seta passando o projeto da esquerda para
+    direita e clique em FINISH.
+
+![ETAPA 8](https://image.ibb.co/f7iTR7/Etapa_8.png)
+    
+        Para finalizar, clique com o botão direito em cima do servidor Tomcat
+        e selecione a opção START.
+
+![Etapa 9](https://image.ibb.co/cCmMeS/Etapa_9.png)
+

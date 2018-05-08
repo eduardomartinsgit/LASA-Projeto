@@ -66,7 +66,11 @@ public class ProcessamentoServiceFacade {
 						qntdVendasProcessadas++;
 					}
 				}
-				processamentoDAO.atualizarStatusProcessamento(vendaVO.getId_processamento(), nomeArquivo, LASAUtils.STATUS_OK);
+				if(qntdVendasProcessadas == 10) {
+					break;
+				} else {
+					processamentoDAO.atualizarStatusProcessamento(vendaVO.getId_processamento(), nomeArquivo, LASAUtils.STATUS_OK);
+				}
 			}
 			
 			arquivo.close();

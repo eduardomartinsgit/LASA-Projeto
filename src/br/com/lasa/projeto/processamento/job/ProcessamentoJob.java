@@ -24,7 +24,7 @@ public class ProcessamentoJob {
 	@Autowired
 	private ProcessamentoServiceFacade processamentoServiceFacade;
 	
-    public synchronized void executarProcessamento() { 
+    public synchronized void executarProcessamentoVenda() { 
     	LOGGER.debug("INICIANDO PROCESSAMENTO");
     	vendaServiceFacade.processarVenda();
     	LOGGER.debug("FINALIZANDO PROCESSAMENTO");

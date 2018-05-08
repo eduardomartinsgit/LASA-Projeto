@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -95,7 +96,11 @@ public class VendaDAOImpl implements VendaDAO {
 		}	catch (DuplicateKeyException e){
 		    	LOGGER.error(e.getStackTrace() + e.toString());
 		    return false;
+		}	catch (PermissionDeniedDataAccessException e){
+	    	LOGGER.error(e.getStackTrace() + e.toString());
+	    	return false;
 		}
+		
 
 	}
 

@@ -17,7 +17,7 @@ import br.com.lasa.projeto.venda.vo.VendaVO;
  * @author Eduardo Martins
  *
  */
-@Path("/vendas")
+@Path("/processamento")
 public class ProcessamentoWebService {
 	
 	@Autowired

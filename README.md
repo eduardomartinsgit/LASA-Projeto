@@ -36,7 +36,6 @@ Similar ao processo de ETL.
 
 Segue abaixo a disponibilização de um diagrama de estados simplificado para melhor entendimento da solução utilizada para o problema.
 
-
 ##### Primeira Etapa:
 
 ```mermaid

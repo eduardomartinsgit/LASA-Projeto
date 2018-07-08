@@ -4,7 +4,6 @@
 
 <br>
 <br>
-Projeto para avaliação no processo seletivo da empresa TO Brasil. <br>
 A ideia do projeto é processar determinadas vendas a partir de uma base de dados ou WebService, 
 <br>transformar alguns dados específicos e extraí-los em forma de um arquivo TXT posicional. Similar ao processo de ETL.
 <br>
